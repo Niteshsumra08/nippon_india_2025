@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Goals</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    window.digitalData = window.digitalData || {};
+    window.digitalData.page = { pageInfo: { pageName: "Goals" } };
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="https://www.nipponindiamf.com/Images/logo.svg" alt="logo">
+    </div>
+    <nav class="nav">
+      <a href="index.html">🏠 <span>Home</span></a>
+      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
+      <a href="explore.html">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html">🎯 <span>Goals</span></a>
+      <a href="risk.html">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html">💼 <span>Transact With Demat</span></a>
+      <a href="account.html">👤 <span>My Account</span></a>
+      <a href="transactions.html">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="header">
+      <h2>Goals</h2>
+      <div class="muted">Create and track financial goals</div>
+    </div>
+
+    <section>
+      <div class="form-box">
+        <h3>Create a new goal</h3>
+        <label>Goal name</label>
+        <input type="text" id="goalName" placeholder="e.g., Child Education">
+
+        <label>Target amount (₹)</label>
+        <input type="number" id="goalAmt" placeholder="Enter amount">
+
+        <label>Years to achieve</label>
+        <input type="number" id="goalYears" class="small" placeholder="e.g., 10">
+
+        <button class="btn" id="addGoalBtn">Add Goal</button>
+
+        <div id="goalsList" style="margin-top:14px;"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById('addGoalBtn')?.addEventListener('click', function(){
+      const name = document.getElementById('goalName').value.trim();
+      const amt = document.getElementById('goalAmt').value;
+      const yrs = document.getElementById('goalYears').value;
+      if(!name || !amt || !yrs){
+        alert('Please fill all fields');
+        return;
+      }
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `<h4>${name}</h4><p class="muted">Target: ₹ ${parseFloat(amt).toLocaleString('en-IN')} | ${yrs} years</p>`;
+      document.getElementById('goalsList').appendChild(div);
+      document.getElementById('goalName').value='';
+      document.getElementById('goalAmt').value='';
+      document.getElementById('goalYears').value='';
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Explore Funds</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    window.digitalData = window.digitalData || {};
+    window.digitalData.page = { pageInfo: { pageName: "Explore Funds" } };
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="https://www.nipponindiamf.com/Images/logo.svg" alt="logo">
+    </div>
+    <nav class="nav">
+      <a href="index.html">🏠 <span>Home</span></a>
+      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
+      <a href="explore.html">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html">🎯 <span>Goals</span></a>
+      <a href="risk.html">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html">💼 <span>Transact With Demat</span></a>
+      <a href="account.html">👤 <span>My Account</span></a>
+      <a href="transactions.html">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="header">
+      <h2>Explore Funds</h2>
+      <div class="muted">Discover funds and sort/filter</div>
+    </div>
+
+    <section>
+      <div class="form-box">
+        <label>Search funds:</label>
+        <input type="text" id="fundSearch" placeholder="Type fund name or keyword">
+
+        <div style="margin-top:12px;">
+          <label>Filter by category:</label>
+          <select id="filterCategory" class="small">
+            <option value="">All</option>
+            <option>Equity</option>
+            <option>Debt</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+
+        <div style="margin-top:16px;">
+          <div id="fundList" class="row">
+            <!-- sample fund items -->
+            <div class="card">
+              <h4>Nippon India Arbitrage Fund</h4>
+              <p class="muted">Category: Debt | Growth</p>
+              <div class="amount">₹ 1,11,41,500</div>
+              <button class="btn" onclick="location.href='txn.html'">Invest</button>
+            </div>
+
+            <div class="card">
+              <h4>Nippon India Large Cap Fund</h4>
+              <p class="muted">Category: Equity | Growth</p>
+              <div class="amount">₹ 75,00,000</div>
+              <button class="btn" onclick="location.href='txn.html'">Invest</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // simple search filter
+    document.addEventListener('DOMContentLoaded', function(){
+      const search = document.getElementById('fundSearch');
+      search?.addEventListener('input', function(){
+        const q = (this.value || '').toLowerCase();
+        document.querySelectorAll('#fundList .card').forEach(card => {
+          const t = (card.querySelector('h4')?.textContent || '').toLowerCase();
+          card.style.display = t.indexOf(q) === -1 ? 'none' : '';
+        });
+      });
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
