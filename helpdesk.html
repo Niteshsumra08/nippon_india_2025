@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Helpdesk</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    window.digitalData = window.digitalData || {};
+    window.digitalData.page = { pageInfo: { pageName: "Helpdesk" } };
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo"><img src="https://www.nipponindiamf.com/Images/logo.svg" alt=""></div>
+    <nav class="nav">
+      <a href="index.html">🏠 <span>Home</span></a>
+      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
+      <a href="explore.html">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html">🎯 <span>Goals</span></a>
+      <a href="risk.html">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html">💼 <span>Transact With Demat</span></a>
+      <a href="account.html">👤 <span>My Account</span></a>
+      <a href="transactions.html">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="header"><h2>Helpdesk</h2></div>
+
+    <section>
+      <div class="form-box">
+        <h3>Contact Support</h3>
+        <label>Name</label>
+        <input type="text" id="helpName" placeholder="Your name">
+
+        <label>Email</label>
+        <input type="text" id="helpEmail" placeholder="you@example.com">
+
+        <label>Message</label>
+        <textarea id="helpMsg" rows="6" placeholder="Describe your issue"></textarea>
+
+        <button class="btn" id="sendHelp">Send</button>
+        <p id="helpResult" class="muted"></p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById('sendHelp')?.addEventListener('click', function(){
+      const name = document.getElementById('helpName').value.trim();
+      const email = document.getElementById('helpEmail').value.trim();
+      const msg = document.getElementById('helpMsg').value.trim();
+      const out = document.getElementById('helpResult');
+      if(!name || !email || !msg){ out.textContent = 'Please fill all fields.'; return; }
+      out.textContent = '✅ Message sent — our support will contact you shortly (demo).';
+      // You can later hook this to an API endpoint and push analytics events here.
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

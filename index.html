@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nippon India - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Adobe Analytics placeholder - add your Adobe tag below -->
+   <script src="https://assets.adobedtm.com/211aa321f662/8b092bfaa093/launch-305ed3d14c51-development.min.js" async></script>
+  <script>
+    window.digitalData = window.digitalData || {};
+    window.digitalData.page = { pageInfo: { pageName: "Dashboard" } };
+    /* Replace the below comment with your Adobe/Analytics script snippet */
+    // Adobe Analytics snippet goes here.
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="https://mf.nipponindiaim.com/SiteCollectionImages/nipponindia-mutual-fund-logo.webp?v=1" alt="Nippon India Mutual Fund">
+    </div>
+    <nav class="nav">
+      <a href="index.html">🏠 <span>Home</span></a>
+      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
+      <a href="explore.html">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html">🎯 <span>Goals</span></a>
+      <a href="risk.html">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html">💼 <span>Transact With Demat</span></a>
+      <a href="account.html">👤 <span>My Account</span></a>
+      <a href="transactions.html">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="header">
+      <h2>Welcome, <span class="user-name">Nitesh Ashok Sumra</span></h2>
+      <div class="muted">Last login: Today</div>
+    </div>
+
+    <section>
+      <div class="section-title">My Recent Investments</div>
+      <div class="row">
+        <div class="card">
+          <h4>Nippon India Arbitrage Fund - Growth Plan - Growth</h4>
+          <p>Folio: 4042027723 | Distributor</p>
+          <div class="amount">₹ 1,11,41,500</div>
+          <button class="btn" onclick="location.href='txn.html'">Repeat Transaction</button>
+        </div>
+
+        <div class="card">
+          <h4>Nippon India Arbitrage Fund - Growth Plan - Growth</h4>
+          <p>Folio: 4042027723 | Distributor</p>
+          <div class="amount">₹ 1,11,41,500</div>
+          <button class="btn" onclick="location.href='txn.html'">Repeat Transaction</button>
+        </div>
+
+        <div class="card">
+          <h4>Nippon India Arbitrage Fund - Growth Plan - Growth</h4>
+          <p>Folio: 4042027723 | Distributor</p>
+          <div class="amount">₹ 1,11,41,500</div>
+          <button class="btn" onclick="location.href='txn.html'">Repeat Transaction</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:26px;">
+      <div class="section-title">My Financial Planner</div>
+      <div class="form-box planner-box">
+        <div class="planner-inputs">
+          <label>Investment Type:
+            <select>
+              <option>Monthly SIP</option>
+              <option>Lumpsum</option>
+            </select>
+          </label>
+
+          <label>Investment Duration:
+            <input type="range" min="1" max="30" value="1">
+            <span>1 Year</span>
+          </label>
+
+          <label>Monthly Investment Amount:
+            <input type="number" placeholder="₹ 100" />
+          </label>
+
+          <label>Expected Annual Returns:
+            <input type="number" placeholder="2%" />
+          </label>
+        </div>
+        <div style="margin-top:12px;">
+          <button id="calculateBtn" class="btn">Submit / Check Logic</button>
+        </div>
+        <p id="result" class="muted"></p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+/* txn.css - page specific styling for txn.html */
+.planner-box h3 { margin-top: 0; }
+.error-text { color: red; font-size: 0.9rem; margin-top:6px; }
+.checkbox-container { display:flex; align-items:center; position:relative; padding-left:28px; cursor:pointer; user-select:none; }
+.checkbox-container input { position:absolute; opacity:0; height:0; width:0; }
+.checkmark { position:absolute; left:0; top:2px; height:18px; width:18px; background-color:#fff; border:2px solid #ccc; border-radius:4px; }
+.checkbox-container input:checked ~ .checkmark { background-color:#e60000; border-color:#e60000; }
+.checkmark::after { content:""; position:absolute; display:none; }
+.checkbox-container input:checked ~ .checkmark::after { display:block; left:5px; top:1px; width:4px; height:9px; border:solid white; border-width:0 2px 2px 0; transform:rotate(45deg); }
+
+@media (max-width:768px){
+  .main { margin-left:64px; padding:12px; }
+  .form-box { padding:16px; }
+}

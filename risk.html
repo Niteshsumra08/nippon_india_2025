@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Risk Assessment</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    window.digitalData = window.digitalData || {};
+    window.digitalData.page = { pageInfo: { pageName: "Risk Assessment" } };
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo"><img src="https://www.nipponindiamf.com/Images/logo.svg" alt=""></div>
+    <nav class="nav">
+      <a href="index.html">🏠 <span>Home</span></a>
+      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
+      <a href="explore.html">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html">🎯 <span>Goals</span></a>
+      <a href="risk.html">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html">💼 <span>Transact With Demat</span></a>
+      <a href="account.html">👤 <span>My Account</span></a>
+      <a href="transactions.html">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="header">
+      <h2>Risk Assessment</h2>
+      <div class="muted">Answer quick questions to determine your risk profile</div>
+    </div>
+
+    <section>
+      <div class="form-box">
+        <h3>Quick questionnaire</h3>
+        <label>1. What is your investment horizon?</label>
+        <select id="q1" class="small">
+          <option value="short">Less than 3 years</option>
+          <option value="medium">3-7 years</option>
+          <option value="long">More than 7 years</option>
+        </select>
+
+        <label>2. How comfortable are you with market fluctuations?</label>
+        <select id="q2" class="small">
+          <option value="low">Not comfortable</option>
+          <option value="medium">Somewhat</option>
+          <option value="high">Comfortable</option>
+        </select>
+
+        <label>3. Primary goal for investing</label>
+        <select id="q3" class="small">
+          <option value="capital">Capital preservation</option>
+          <option value="growth">Long-term growth</option>
+          <option value="income">Regular income</option>
+        </select>
+
+        <button class="btn" id="assessBtn" style="margin-top:14px;">Assess Risk</button>
+
+        <p id="riskResult" class="muted" style="margin-top:12px;"></p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById('assessBtn')?.addEventListener('click', function(){
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const q3 = document.getElementById('q3').value;
+      let score = 0;
+      if(q1 === 'long') score += 2;
+      if(q1 === 'medium') score += 1;
+      if(q2 === 'high') score += 2;
+      if(q2 === 'medium') score += 1;
+      if(q3 === 'growth') score += 2;
+      if(q3 === 'income') score += 1;
+
+      const out = document.getElementById('riskResult');
+      if(score >= 5) out.textContent = "Risk profile: Aggressive";
+      else if(score >=3) out.textContent = "Risk profile: Moderate";
+      else out.textContent = "Risk profile: Conservative";
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Repeat Transaction</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="txn.css"/>
+  <script>
+    window.digitalData = window.digitalData || {};
+    window.digitalData.page = { pageInfo: { pageName: "Repeat Transaction" } };
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo"><img src="https://www.nipponindiamf.com/Images/logo.svg" alt=""></div>
+    <nav class="nav">
+      <a href="index.html">🏠 <span>Home</span></a>
+      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
+      <a href="explore.html">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html">🎯 <span>Goals</span></a>
+      <a href="risk.html">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html">💼 <span>Transact With Demat</span></a>
+      <a href="account.html">👤 <span>My Account</span></a>
+      <a href="transactions.html">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="header"><h2>Repeat Transaction</h2></div>
+
+    <section>
+      <div class="form-box planner-box" style="max-width:520px;">
+        <h3 style="color:#0078d4; margin-bottom:6px;">Enter Transaction Details</h3>
+
+        <label>Fund Name:</label>
+        <input type="text" value="Nippon India Arbitrage Fund - Growth Plan" readonly>
+
+        <label>Investment Type:</label>
+        <select id="txnType">
+          <option>Monthly SIP</option>
+          <option>Lumpsum</option>
+        </select>
+
+        <label>Investment Amount (₹):</label>
+        <input type="number" id="transactionAmount" placeholder="Enter amount">
+
+        <label>Payment Method:</label>
+        <select id="payMethod">
+          <option>Net Banking</option>
+          <option>UPI</option>
+          <option>Debit Card</option>
+        </select>
+
+        <label class="checkbox-container" style="margin-top:10px;">
+          <input type="checkbox" id="agreeCheckbox">
+          <span class="checkmark"></span>
+          I agree to the investment terms and conditions
+        </label>
+        <p id="agreeError" class="error-text"></p>
+
+        <button class="btn" id="confirmTransaction" disabled>Confirm Transaction</button>
+        <p id="transactionResult" style="font-weight:600; margin-top:10px;"></p>
+
+        <a href="index.html" class="btn secondary" style="display:inline-block; margin-top:12px;">← Back to Dashboard</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById('agreeCheckbox');
+    const confirmBtn = document.getElementById('confirmTransaction');
+    const amtInput = document.getElementById('transactionAmount');
+    const result = document.getElementById('transactionResult');
+    const agreeError = document.getElementById('agreeError');
+
+    checkbox?.addEventListener('change', () => {
+      if (checkbox.checked) {
+        confirmBtn.disabled = false;
+        agreeError.textContent = "";
+      } else {
+        confirmBtn.disabled = true;
+        agreeError.textContent = "⚠️ Please agree to the investment terms and conditions.";
+      }
+    });
+
+    confirmBtn?.addEventListener('click', () => {
+      const amt = parseFloat(amtInput.value);
+      result.textContent = "";
+      agreeError.textContent = "";
+
+      if (!checkbox.checked) {
+        agreeError.textContent = "⚠️ Please agree to the investment terms and conditions.";
+        return;
+      }
+
+      if (!amt || amt <= 0) {
+        result.textContent = "⚠️ Please enter a valid amount.";
+        result.style.color = "red";
+        return;
+      }
+
+      result.textContent = `✅ Transaction of ₹${parseInt(amt).toLocaleString('en-IN')} successful!`;
+      result.style.color = "green";
+
+      // push an analytics event (example)
+      window.digitalData = window.digitalData || {};
+      window.digitalData.transaction = {
+        fund: document.querySelector('input[readonly]').value,
+        type: document.getElementById('txnType').value,
+        amount: amt,
+        method: document.getElementById('payMethod').value
+      };
+      // you can fire Adobe event here
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

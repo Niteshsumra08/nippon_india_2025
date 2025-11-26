@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Transact With Demat</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    window.digitalData = window.digitalData || {};
+    window.digitalData.page = { pageInfo: { pageName: "Transact With Demat" } };
+  </script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo"><img src="https://mf.nipponindiaim.com/SiteCollectionImages/nipponindia-mutual-fund-logo.webp?v=1" alt="Nippon India Mutual Fund"></div>
+    <nav class="nav">
+      <a href="index.html">🏠 <span>Home</span></a>
+      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
+      <a href="explore.html">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html">🎯 <span>Goals</span></a>
+      <a href="risk.html">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html">💼 <span>Transact With Demat</span></a>
+      <a href="account.html">👤 <span>My Account</span></a>
+      <a href="transactions.html">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="header">
+      <h2>Transact With Demat</h2>
+      <div class="muted">Link your demat & transact</div>
+    </div>
+
+    <section>
+      <div class="form-box">
+        <h3>Link Demat Account</h3>
+        <label>DP ID</label>
+        <input type="text" id="dpId" placeholder="Enter DP ID">
+        <label>Client ID</label>
+        <input type="text" id="clientId" placeholder="Enter Client ID">
+        <button class="btn" id="linkDemat">Link Account</button>
+
+        <p id="linkMsg" class="muted" style="margin-top:12px;"></p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById('linkDemat')?.addEventListener('click', function(){
+      const dp = document.getElementById('dpId').value.trim();
+      const client = document.getElementById('clientId').value.trim();
+      const out = document.getElementById('linkMsg');
+      if(!dp || !client){ out.textContent = 'Please fill both DP ID and Client ID'; return; }
+      out.textContent = '✅ Demat linked successfully (demo)';
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
