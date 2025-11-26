@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nippon India - Dashboard</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Adobe Analytics placeholder - add your Adobe tag below -->
-   <script src="https://assets.adobedtm.com/211aa321f662/8b092bfaa093/launch-305ed3d14c51-development.min.js" async></script>
   <script>
     window.digitalData = window.digitalData || {};
     window.digitalData.page = { pageInfo: { pageName: "Dashboard" } };
-    /* Replace the below comment with your Adobe/Analytics script snippet */
-    // Adobe Analytics snippet goes here.
   </script>
+  <script src="https://assets.adobedtm.com/211aa321f662/8b092bfaa093/launch-305ed3d14c51-development.min.js" async></script>
 </head>
 <body>
   <aside class="sidebar">
@@ -20,17 +17,18 @@
       <img src="https://mf.nipponindiaim.com/SiteCollectionImages/nipponindia-mutual-fund-logo.webp?v=1" alt="Nippon India Mutual Fund">
     </div>
     <nav class="nav">
-      <a href="index.html">🏠 <span>Home</span></a>
-      <a href="portfolio.html">📊 <span>My Portfolio</span></a>
-      <a href="explore.html">🔍 <span>Explore Funds</span></a>
-      <a href="goals.html">🎯 <span>Goals</span></a>
-      <a href="risk.html">📈 <span>Risk Assessment</span></a>
-      <a href="demat.html">💼 <span>Transact With Demat</span></a>
-      <a href="account.html">👤 <span>My Account</span></a>
-      <a href="transactions.html">💳 <span>Transactions</span></a>
-      <a href="helpdesk.html">🆘 <span>Helpdesk</span></a>
-      <a href="logout.html" class="logout">🚪 <span>Logout</span></a>
-    </nav>
+  <a href="index.html" data-track="nav_home">🏠 <span>Home</span></a>
+  <a href="portfolio.html" data-track="nav_portfolio">📊 <span>My Portfolio</span></a>
+  <a href="explore.html" data-track="nav_explore">🔍 <span>Explore Funds</span></a>
+  <a href="goals.html" data-track="nav_goals">🎯 <span>Goals</span></a>
+  <a href="risk.html" data-track="nav_risk">📈 <span>Risk Assessment</span></a>
+  <a href="demat.html" data-track="nav_demat">💼 <span>Transact With Demat</span></a>
+  <a href="account.html" data-track="nav_account">👤 <span>My Account</span></a>
+  <a href="transactions.html" data-track="nav_transactions">💳 <span>Transactions</span></a>
+  <a href="helpdesk.html" data-track="nav_helpdesk">🆘 <span>Helpdesk</span></a>
+  <a href="logout.html" class="logout" data-track="nav_logout">🚪 <span>Logout</span></a>
+</nav>
+
   </aside>
 
   <div class="main">
