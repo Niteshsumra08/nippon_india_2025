@@ -1,4 +1,15 @@
-/* script.js - shared scripts for navigation and financial logic */
+document.addEventListener("click", function(event) {
+  const el = event.target.closest("[data-track]");
+  if (!el) return;
+
+  window.digitalData = window.digitalData || {};
+  window.digitalData.event = {
+    eventInfo: {
+      eventName: el.dataset.track   // Example: nav_home, btn_save_profile
+    }
+  };
+});
+
 
 /* --- Adobe Analytics Event Tracking --- */
 function trackEvent(eventName, linkName) {
