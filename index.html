@@ -5,68 +5,92 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nippon India - Dashboard</title>
   <link rel="stylesheet" href="style.css" />
+
   <script>
     window.digitalData = window.digitalData || {};
     window.digitalData.page = { pageInfo: { pageName: "Dashboard" } };
   </script>
+
   <script src="https://assets.adobedtm.com/211aa321f662/8b092bfaa093/launch-305ed3d14c51-development.min.js" async></script>
 </head>
+
 <body>
+
+  <!-- SIDEBAR (tracking added safely) -->
   <aside class="sidebar">
     <div class="logo">
       <img src="https://mf.nipponindiaim.com/SiteCollectionImages/nipponindia-mutual-fund-logo.webp?v=1" alt="Nippon India Mutual Fund">
     </div>
-    <nav class="nav">
-  <a href="index.html" data-track="nav_home">🏠 <span>Home</span></a>
-  <a href="portfolio.html" data-track="nav_portfolio">📊 <span>My Portfolio</span></a>
-  <a href="explore.html" data-track="nav_explore">🔍 <span>Explore Funds</span></a>
-  <a href="goals.html" data-track="nav_goals">🎯 <span>Goals</span></a>
-  <a href="risk.html" data-track="nav_risk">📈 <span>Risk Assessment</span></a>
-  <a href="demat.html" data-track="nav_demat">💼 <span>Transact With Demat</span></a>
-  <a href="account.html" data-track="nav_account">👤 <span>My Account</span></a>
-  <a href="transactions.html" data-track="nav_transactions">💳 <span>Transactions</span></a>
-  <a href="helpdesk.html" data-track="nav_helpdesk">🆘 <span>Helpdesk</span></a>
-  <a href="logout.html" class="logout" data-track="nav_logout">🚪 <span>Logout</span></a>
-</nav>
 
+    <nav class="nav">
+      <a href="index.html" data-track="nav_home">🏠 <span>Home</span></a>
+      <a href="portfolio.html" data-track="nav_portfolio">📊 <span>My Portfolio</span></a>
+      <a href="explore.html" data-track="nav_explore">🔍 <span>Explore Funds</span></a>
+      <a href="goals.html" data-track="nav_goals">🎯 <span>Goals</span></a>
+      <a href="risk.html" data-track="nav_risk">📈 <span>Risk Assessment</span></a>
+      <a href="demat.html" data-track="nav_demat">💼 <span>Transact With Demat</span></a>
+      <a href="account.html" data-track="nav_account">👤 <span>My Account</span></a>
+      <a href="transactions.html" data-track="nav_transactions">💳 <span>Transactions</span></a>
+      <a href="helpdesk.html" data-track="nav_helpdesk">🆘 <span>Helpdesk</span></a>
+      <a href="logout.html" class="logout" data-track="nav_logout">🚪 <span>Logout</span></a>
+    </nav>
   </aside>
 
+  <!-- MAIN -->
   <div class="main">
+
     <div class="header">
       <h2>Welcome, <span class="user-name">Nitesh Ashok Sumra</span></h2>
       <div class="muted">Last login: Today</div>
     </div>
 
+    <!-- RECENT INVESTMENTS -->
     <section>
       <div class="section-title">My Recent Investments</div>
+
       <div class="row">
+
         <div class="card">
           <h4>Nippon India Arbitrage Fund - Growth Plan - Growth</h4>
           <p>Folio: 4042027723 | Distributor</p>
           <div class="amount">₹ 1,11,41,500</div>
-          <button class="btn" onclick="location.href='txn.html'">Repeat Transaction</button>
+
+          <!-- Tracking added safely -->
+          <button class="btn" data-track="repeat_transaction" onclick="location.href='txn.html'">
+            Repeat Transaction
+          </button>
         </div>
 
         <div class="card">
           <h4>Nippon India Arbitrage Fund - Growth Plan - Growth</h4>
           <p>Folio: 4042027723 | Distributor</p>
           <div class="amount">₹ 1,11,41,500</div>
-          <button class="btn" onclick="location.href='txn.html'">Repeat Transaction</button>
+
+          <button class="btn" data-track="repeat_transaction" onclick="location.href='txn.html'">
+            Repeat Transaction
+          </button>
         </div>
 
         <div class="card">
           <h4>Nippon India Arbitrage Fund - Growth Plan - Growth</h4>
           <p>Folio: 4042027723 | Distributor</p>
           <div class="amount">₹ 1,11,41,500</div>
-          <button class="btn" onclick="location.href='txn.html'">Repeat Transaction</button>
+
+          <button class="btn" data-track="repeat_transaction" onclick="location.href='txn.html'">
+            Repeat Transaction
+          </button>
         </div>
+
       </div>
     </section>
 
+    <!-- FINANCIAL PLANNER -->
     <section style="margin-top:26px;">
       <div class="section-title">My Financial Planner</div>
+
       <div class="form-box planner-box">
         <div class="planner-inputs">
+
           <label>Investment Type:
             <select>
               <option>Monthly SIP</option>
@@ -86,16 +110,23 @@
           <label>Expected Annual Returns:
             <input type="number" placeholder="2%" />
           </label>
+
         </div>
+
         <div style="margin-top:12px;">
-          <button id="calculateBtn" class="btn">Submit / Check Logic</button>
+          <button id="calculateBtn" class="btn" data-track="planner_submit">
+            Submit / Check Logic
+          </button>
         </div>
+
         <p id="result" class="muted"></p>
       </div>
+
     </section>
 
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>

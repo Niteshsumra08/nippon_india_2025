@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   calcBtn.addEventListener('click', () => {
     const amountInput = document.querySelector('input[placeholder="₹ 100"]');
     const durationInput = document.querySelector('input[type="range"]');
-    const returnsInput = document.querySelector('input[placeholder="2%"]');
+    const returnsInput = document.querySelector('input[placeholder="8%"]');
     const resultP = document.getElementById('result');
 
     const amount = amountInput ? parseFloat(amountInput.value) : NaN;
