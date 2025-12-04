@@ -6,8 +6,15 @@
   <title>Explore Funds</title>
   <link rel="stylesheet" href="style.css"/>
   <script>
-    window.digitalData = window.digitalData || {};
-    window.digitalData.page = { pageInfo: { pageName: "Explore Funds" } };
+     window.digitalData = {
+      page: {
+        pageInfo: {
+          pageName: "Explore Funds",                      
+          pageURL: window.location.href                  
+        }
+      },
+      event: []                                           
+    };
   </script>
  <script src="https://assets.adobedtm.com/211aa321f662/8b092bfaa093/launch-305ed3d14c51-development.min.js" async></script>
 </head>

@@ -1,0 +1,50 @@
+property = nippon_india_2025 (web)
+Rules= BTN - Link Click Tracking / RL - Page View
+Data Elements= DE pagename / DE pageURL / linkname
+extension used = core / adobe analytics
+Pflow= name=LIB - DEV - PageViewSetup / EN=development
+
+RULES:
+RL - Page View Rule
+event = core / page bottom
+action = AA / Set variable / Page Name=%DE - pageName% / Page URL=%DE - pageURL%
+WAIT THEN
+action 2 = aa / send beacon / s.t():
+WAIT THEN
+action 3 = aa / clear variable
+
+BTN - Link Click Tracking Rule
+event = core / click / specific elements *[data-track]
+action = AA / Set variable
+action 2 = aa / send beacon / s.tl(): custom code: %linkName%
+WAIT THEN
+action 3 = aa / clear variable
+
+
+Data Elements:
+DE - pageName / CORE / javascript variable / enable default value / default value=unkonwn_page / storage duration= pageview / JavaScript variable name ​= window.digitalData.page.pageInfo.pageName
+
+DE - pageURL / CORE / javascript variable / enable default value / default value=unknown_url / storage duration= pageview /JavaScript variable name ​= window.location.href
+
+linkName/ CORE / custom code / storage duration=session / open editor=var linkEl = event.target.closest("[data-track]"); return linkEl ? linkEl.dataset.track : "unknown_click";
+
+
+
+document.addEventListener("click", function(event) {
+  const el = event.target.closest("[data-track]");
+  if (!el) return;
+
+  window.digitalData = window.digitalData || {};
+  window.digitalData.event = {
+    eventInfo: {
+      eventName: el.dataset.track   // Example: nav_home, btn_save_profile
+    }
+  };
+});
+
+
+
+
+
+
+

@@ -6,8 +6,15 @@
   <title>Transact With Demat</title>
   <link rel="stylesheet" href="style.css"/>
   <script>
-    window.digitalData = window.digitalData || {};
-    window.digitalData.page = { pageInfo: { pageName: "Transact With Demat" } };
+    window.digitalData = {
+      page: {
+        pageInfo: {
+          pageName: "Transact With Demat",                      
+          pageURL: window.location.href                  
+        }
+      },
+      event: []                                           
+    };
   </script>
    <script src="https://assets.adobedtm.com/211aa321f662/8b092bfaa093/launch-305ed3d14c51-development.min.js" async></script>
 </head>
